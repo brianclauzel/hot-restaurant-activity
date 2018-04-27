@@ -48,7 +48,7 @@
 
 
 	<p>Control Panel</p>
-	<p><a href="">Clear Table</a> | <a href="">API Table Link</a> | <a href="">API Wait List</a></p> 
+	<p><a href="" id="clear">Clear Table</a> | <a href="">API Table Link</a> | <a href="">API Wait List</a></p> 
 
 </div> 
 <script>
@@ -113,19 +113,19 @@
 	// 		});
 	// }
 
-	// function clearTable(){
+	function clearTable(){
 
-	// 	$.ajax({url:+ "/api/clear", method: "POST"})
+		$.ajax({url:"/api/clear", method: "POST"})
 
-	// }
+	}
 
-	// $("#clear").on('click', function(){
-	// 	alert("Clearing...");
-	// 	clearTable();
+	$("#clear").on('click', function(){
+		alert("Clearing...");
+		clearTable();
 
 
-	// 	location.reload();
-	// })
+		location.reload();
+	})
 
 
 
