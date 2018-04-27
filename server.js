@@ -19,8 +19,9 @@ app.get("/reservation", function(req, res) {
     res.sendFile(path.join(__dirname, "reservation.html"));
   });
 
-app.post("/reservation", function(req, res){
+app.post("/table", function(req, res){
     var newReservation = req.body;
+    
 
     
 });
