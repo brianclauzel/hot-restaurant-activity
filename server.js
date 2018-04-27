@@ -1,6 +1,10 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
+var twilio = require("twilio");
+var accountSid = process.env.accountID;
+var authToken = process.env.token;
+var client = new twilio(accountSid, authToken);
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -29,6 +33,14 @@ app.post("/table", function(req, res){
     
 });
 
+
+
+client.messages.create({
+  body: 'You are next in line for a table!',
+  to: "number",
+  from: "+18582958452"
+})
+.then((message) => console.log(message.sid));
 
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
