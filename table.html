@@ -64,20 +64,22 @@
 			
 
 				console.log(tableData);
-			
+                
 
 				for (var i=0; i<tableData.length; i++){
 
 					var tableSection = $("<div>");
 					tableSection.addClass('well');
-					tableSection.attr('id', 'tableWell-');
-                    $('#tableSection').append(tableSection);
+					
+                    
                     
                     // $("#tableWell-").append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + tableData[i].uniqueID + "</h2>");
 
 					var tableNumber = i+1;
 
-					$("#tableWell-"+ i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + tableData[i].uniqueID + "</h2>");
+                    tableSection.append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + tableData[i].uniqueID + "</h2>");
+                    $('#tableSection').append(tableSection);
+                    
 				}
 			});
 	}
