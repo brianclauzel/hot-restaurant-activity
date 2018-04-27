@@ -5,9 +5,10 @@
 
 	<title>Reservation Page</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -21,8 +22,8 @@
 		  <h2>Make your reservation</h2>
 		  <br>
 		  <p>
-		  	<a class="btn btn-primary btn-lg" id="view-tables" href="./table.html" role="button"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> View Tables</a>
-		  	<a class="btn btn-default btn-lg" id="home-page" href="./home.html" role="button"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+		  	<a class="btn btn-primary btn-lg" id="view-tables" href="/tables" role="button"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> View Tables</a>
+		  	<a class="btn btn-default btn-lg" id="home-page" href="/" role="button"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
 		  </p>
 
 		</div> 
@@ -34,22 +35,22 @@
   			<div class="panel-body">
 	    		<div class="form-group">
 				  <label for="user">Name</label>
-				  <input type="text" class="form-control" id="user-name">
+				  <input type="text" class="form-control" id="reserve_name">
 				</div>
 				<div class="form-group">
 				  <label for="phonenumber">Phone Number</label>
-				  <input type="phone" class="form-control" id="phone">
+				  <input type="phone" class="form-control" id="reserve_phone">
 				</div>
 				<div class="form-group">
 				  <label for="email">Email</label>
-				  <input type="text" class="form-control" id="email">
+				  <input type="text" class="form-control" id="reserve_email">
 				</div>
 				<div class="form-group">
 				  <label for="id">Unique ID</label>
-				  <input type="text" class="form-control" id="user-id">
+				  <input type="text" class="form-control" id="reserve_uniqueID">
 				</div>
 
-				<button type="submit" class="btn btn-primary" id="add-btn">Submit</button>
+				<button type="submit" class="btn btn-primary submit" id="add-btn">Submit</button>
 
   			</div>
 	</div>
@@ -74,9 +75,9 @@
 		console.log(newReservation);
 
 	
-		var currentURL = window.location.origin;
+		
 
-	    $.post(currentURL + "/api/tables", newReservation,
+	    $.post("/table", newReservation,
 	    function(data){
 
 	    

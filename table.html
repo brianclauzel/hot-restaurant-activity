@@ -22,8 +22,8 @@
 		  <h2>Current Reservations and Wait List</h2>
 		  <br>
 		  <p>
-		  	<a class="btn btn-danger btn-lg" id="make-reserve" href="./reservations.html" role="button"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span> Make Reservation</a>
-		  	<a class="btn btn-default btn-lg" id="home-page" href="./home.html" role="button"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+		  	<a class="btn btn-danger btn-lg" id="make-reserve" href="/reservations" role="button"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span> Make Reservation</a>
+		  	<a class="btn btn-default btn-lg" id="home-page" href="/" role="button"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
 		  </p>
 		</div> 
 	</div> 
@@ -56,13 +56,13 @@
 	function runTableQuery(){
 
 
-		var currentURL = window.location.origin;
+		
 
-		$.ajax({url: currentURL + "/api/tables", method: "GET"})
+		$.ajax({url:"/tables", method: "GET"})
 			.done(function(tableData) {
 
 				console.log("------------------------------------");
-				console.log("URL: " + currentURL + "/api/tables");
+				
 				console.log("------------------------------------");
 
 				console.log(tableData);
@@ -82,54 +82,53 @@
 			});
 	}
 
-	function runWaitListQuery(){
+	// function runWaitListQuery(){
 
 
-		var currentURL = window.location.origin;
+		
 
-		$.ajax({url: currentURL + "/api/waitlist", method: "GET"})
-			.done(function(waitlistData) {
+	// 	$.ajax({url:"/waitlist", method: "GET"})
+	// 		.done(function(waitlistData) {
 
-				console.log("------------------------------------");
-				console.log("URL: " + currentURL + "/api/waitlist");
-				console.log("------------------------------------");
+	// 			console.log("------------------------------------");
+				
+	// 			console.log("------------------------------------");
 
-				console.log(waitlistData);
-				console.log("------------------------------------")
+	// 			console.log(waitlistData);
+	// 			console.log("------------------------------------")
 
-				for (var i=0; i<waitlistData.length; i++){
+	// 			for (var i=0; i<waitlistData.length; i++){
 
-					var waitlistSection = $("<div>");
-					waitlistSection.addClass('well');
-					waitlistSection.attr('id', 'waitlistWell-' + i+1)
-					$('#waitlistSection').append(waitlistSection);
+	// 				var waitlistSection = $("<div>");
+	// 				waitlistSection.addClass('well');
+	// 				waitlistSection.attr('id', 'waitlistWell-' + i+1)
+	// 				$('#waitlistSection').append(waitlistSection);
 
-					var tableNumber = i + 1;
+	// 				var tableNumber = i + 1;
 
-					$("#waitlistWell-"+ i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + waitlistData[i].customerID + "</h2>");
-				}
-			});
-	}
+	// 				$("#waitlistWell-"+ i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + waitlistData[i].customerID + "</h2>");
+	// 			}
+	// 		});
+	// }
 
-	function clearTable(){
+	// function clearTable(){
 
-		var currentURL = window.location.origin;
-		$.ajax({url: currentURL + "/api/clear", method: "POST"})
+	// 	$.ajax({url:+ "/api/clear", method: "POST"})
 
-	}
+	// }
 
-	$("#clear").on('click', function(){
-		alert("Clearing...");
-		clearTable();
+	// $("#clear").on('click', function(){
+	// 	alert("Clearing...");
+	// 	clearTable();
 
 
-		location.reload();
-	})
+	// 	location.reload();
+	// })
 
 
 
 	runTableQuery();
-	runWaitListQuery();
+	// runWaitListQuery();
 
 </script>
 
