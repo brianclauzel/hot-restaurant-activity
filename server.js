@@ -25,6 +25,11 @@ app.get("/get/tables", function(req, res) {
     res.json(reservations);
 });
 
+app.post("/api/clear", function(req, res) {
+    reservations = [];
+    res.json(reservations);
+});
+
 app.get("/tables", function(req, res) {
     res.sendFile(path.join(__dirname, "table.html"));
   });
