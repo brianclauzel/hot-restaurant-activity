@@ -31,7 +31,7 @@
 	
 	<div class="row"> 
 		<div class="panel panel-default">
-		  <div class="panel-heading">Current Reservations</div>
+		  <div class="panel-heading" id="tableSection">Current Reservations</div>
 		  <div class="panel-body" id="currentReserve">
 		  </div>
 		  
@@ -58,26 +58,26 @@
 
 		
 
-		$.ajax({url:"/tables", method: "GET"})
+		$.ajax({url:"/get/tables", method: "GET"})
 			.done(function(tableData) {
 
-				console.log("------------------------------------");
-				
-				console.log("------------------------------------");
+			
 
 				console.log(tableData);
-				console.log("------------------------------------")
+			
 
 				for (var i=0; i<tableData.length; i++){
 
 					var tableSection = $("<div>");
 					tableSection.addClass('well');
-					tableSection.attr('id', 'tableWell-' + i+1)
-					$('#tableSection').append(tableSection);
+					tableSection.attr('id', 'tableWell-');
+                    $('#tableSection').append(tableSection);
+                    
+                    // $("#tableWell-").append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + tableData[i].uniqueID + "</h2>");
 
-					var tableNumber = i + 1;
+					var tableNumber = i+1;
 
-					$("#tableWell-"+ i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + tableData[i].customerID + "</h2>");
+					$("#tableWell-"+ i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + tableData[i].uniqueID + "</h2>");
 				}
 			});
 	}
